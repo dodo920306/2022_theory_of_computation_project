@@ -76,17 +76,25 @@ def service_category_event(event):
                 ImageCarouselColumn(
                     image_url='https://picsum.photos/200',
                     action=PostbackAction(
-                        label='服務類別1',
-                        display_text='我想預約服務類別1',
+                        label='活動類別1',
+                        display_text='我想預約活動類別1',
                         data='action=buy&itemid=1'
                     )
                 ),
                 ImageCarouselColumn(
                     image_url='https://picsum.photos/300',
                     action=PostbackAction(
-                        label='服務類別2',
-                        display_text='我想預約服務類別2',
+                        label='活動類別2',
+                        display_text='我想預約活動類別2',
                         data='action=buy&itemid=2'
+                    )
+                ),
+                ImageCarouselColumn(
+                    image_url='https://picsum.photos/100',
+                    action=PostbackAction(
+                        label='取消',
+                        display_text='取消',
+                        data='action=notconfirmed'
                     )
                 )
             ]
@@ -163,10 +171,6 @@ def service_event(event):
                                     "type": "filler"
                                 },
                                 {
-                                    "type": "icon",
-                                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip14.png"
-                                },
-                                {
                                     "type": "text",
                                     "text": "預約",
                                     "color": "#ffffff",
@@ -211,7 +215,7 @@ def service_event(event):
                     "contents": [
                     {
                         "type": "text",
-                        "text": "SALE",
+                        "text": "尚有名額",
                         "color": "#ffffff",
                         "align": "center",
                         "size": "xs",
@@ -231,6 +235,101 @@ def service_event(event):
             }
             }
             bubbles.append(bubble)
+    bubble={
+        "type": "bubble",
+        "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                    {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "取消預約",
+                                "size": "xl",
+                                "color": "#ffffff",
+                                "weight": "bold"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "box",
+                        "layout": "baseline",
+                        "contents": [
+                        {
+                            "type": "text",
+                            "text": "  ",
+                            "color": "#ebebeb",
+                            "size": "sm",
+                            "flex": 0
+                        }
+                        ],
+                        "spacing": "lg"
+                    },
+                    {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                        {
+                            "type": "filler"
+                        },
+                        {
+                            "type": "box",
+                            "layout": "baseline",
+                            "contents": [
+                                {
+                                    "type": "filler"
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "取消",
+                                    "color": "#ffffff",
+                                    "flex": 0,
+                                    "offsetTop": "-2px",
+                                },
+                                {
+                                    "type": "filler"
+                                }
+                            ],
+                            "spacing": "sm"
+                        },
+                        {
+                            "type": "filler"
+                        }
+                        ],
+                        "borderWidth": "1px",
+                        "cornerRadius": "4px",
+                        "spacing": "sm",
+                        "borderColor": "#ffffff",
+                        "margin": "xxl",
+                        "height": "40px",
+                        "action": {
+                            "type": "postback",
+                            "label": "action",
+                            "data": 'action=notconfirmed',
+                            "displayText": "取消預約"
+                        }
+                    }
+                ],
+                "position": "absolute",
+                "offsetBottom": "0px",
+                "offsetStart": "0px",
+                "offsetEnd": "0px",
+                "backgroundColor": "#03303Acc",
+                "paddingAll": "20px",
+                "paddingTop": "18px"
+            }
+            ],
+            "paddingAll": "0px"
+        }
+    }
+    bubbles.append(bubble)
     flex_message = FlexSendMessage(
         alt_text='hello',
         contents=
@@ -258,6 +357,14 @@ def service_select_event(event):
             )
         quick_reply_buttons.append(quick_reply_button)
 
+    quick_reply_button = QuickReplyButton(
+            action=PostbackAction(label=f'取消',
+                                text=f'取消',
+                                data='action=notconfirmed'
+                                )
+        )
+    quick_reply_buttons.append(quick_reply_button)
+
     text_message = TextSendMessage(text='好的，請選擇預約日期',
                                    quick_reply=QuickReply(items=quick_reply_buttons))
     
@@ -279,6 +386,15 @@ def service_select_time_event(event):
                                     )
             )
         quick_reply_buttons.append(quick_reply_button)
+
+    quick_reply_button = QuickReplyButton(
+            action=PostbackAction(label=f'取消',
+                                text=f'取消',
+                                data='action=notconfirmed'
+                                )
+        )
+    quick_reply_buttons.append(quick_reply_button)
+
 
     text_message = TextSendMessage(text='好的，請選擇預約時間',
                                    quick_reply=QuickReply(items=quick_reply_buttons))

@@ -5,6 +5,7 @@ from extensions import db, migrate
 from models.user import User
 from events.basic import about_us_event, location_event
 from events.service import *
+from events.admin import *
 
 
 app = Flask(__name__)
@@ -44,12 +45,19 @@ def handle_message(event):
         db.session.add(user)
         db.session.commit()
 
-    if message_text == '關於':
+    if message_text == '使用說明':
         about_us_event(event)
-    elif message_text == '地點':
+    elif message_text == '地點在哪裡呢?':
         location_event(event)
-    elif message_text == '預約':
+    elif message_text == '進入預約系統':
         book_event(event, user)
+    elif message_text == '有沒有真人可以跟我洽談?':
+        talk_event(event)
+    elif message_text.startswith('*'):
+        if event.source.user_id not in ['Uca7fb7fa191686c0c10d472389180d27']:
+            return
+        if message_text in ['*預約名單']:
+            list_reservation_event(event)
 
 @handler.add(PostbackEvent)
 def handle_postback(event):
