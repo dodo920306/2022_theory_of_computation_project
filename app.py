@@ -49,11 +49,12 @@ def handle_message(event):
     elif message_text == '地點':
         location_event(event)
     elif message_text == '預約':
-        book_event(event)
+        book_event(event, user)
 
 @handler.add(PostbackEvent)
 def handle_postback(event):
     data = dict(parse_qsl(event.postback.data))
+    user = User.query.filter(User.line_id == event.source.user_id).first()
     if data.get('action') == 'buy':
         service_event(event)
     elif data.get('action') == 'select_date':
@@ -63,18 +64,15 @@ def handle_postback(event):
     elif data.get('action') == 'confirm':
         confirm_event(event)
     elif data.get('action') == 'confirmed':
-        service_confirmed_event(event)
+        service_confirmed_event(event, user)
     elif data.get('action') == 'notconfirmed':
         service_notconfirmed_event(event)
     elif data.get('action') == 'book':
         service_category_event(event)
     elif data.get('action') == 'cancel':
-        service_category_event(event)
-    print('action:', data.get('action'))
-    print('itemid:', data.get('itemid'))
-    print('service:', data.get('service_id'))
-    print('date:', data.get('date'))
-    print('time:', data.get('time'))
+        cancel_event(event, user)
+    elif data.get('action') == 'canceled':
+        canceled_event(event, user)
 
 if __name__ == "__main__":
     app.run()
