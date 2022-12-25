@@ -456,9 +456,6 @@ def service_confirmed_event(event, user):
         )
         return
 
-
-    
-
     user = User.query.filter(User.line_id == event.source.user_id).first()
 
     reservation = Reservation(
