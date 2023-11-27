@@ -1,35 +1,53 @@
 # 2022_Theory_of_computation_project
-歡迎來到青年活動中心!\n
+歡迎來到青年活動中心！這是一個模擬活動預約系統的 linebot！
+
 你可以透過與linebot互動獲取青年活動的最新消息並預約參與了解我們
 (以下功能以Linebot, PostgreSQL, Pytransition實作)
 
 ## FSM
-![fsm](https://user-images.githubusercontent.com/74814435/209556905-4ac6a79e-23a3-4385-80c1-02b05dda8bee.png)
+<img src="images/fsm.png" width="500"/>
+
+它看起來超級繁雜的！這是因為為了使用者方便起見，所有 state 皆可舜切換至其他任意 state。
+
+試試看你就知道了！使用者不需要再按錯之後「回上一動」，而是直接回去原訊息點擊正確的選項。
 
 ## 圖文選單
-![image](https://user-images.githubusercontent.com/74814435/209557102-8ffc6445-cb4c-40ae-a827-7450005842de.png)
+<img src="images/menu.png" width="300"/>
 
 ### 關於
 取得使用說明
-![image](https://user-images.githubusercontent.com/74814435/209557688-7f3767a5-b477-4685-a483-38c2530b0cae.png)
+
+<img src="images/directions.png" width="300"/>
 
 ### 地點
 取得活動中心地點
-![image](https://user-images.githubusercontent.com/74814435/209557703-0fb35dbb-5570-4f1c-b5d0-651fae40c6c3.png)
+
+<img src="images/location.png" width="300"/>
 
 ### 預約
 流程如下: 
-![image](https://user-images.githubusercontent.com/74814435/209557578-826f0936-d89b-4261-8c6f-27cb6bcc694b.png)
+
+<img src="images/book.png" width="300"/>
+
 選擇欲參與活動類別:
-![image](https://user-images.githubusercontent.com/74814435/209557506-8084b53d-04c3-4f7e-8aa8-d51abb24261e.png)
+
+<img src="images/catalog.png" width="300"/>
+
 選擇活動:
-![image](https://user-images.githubusercontent.com/74814435/209557750-7af540f4-5e3a-4870-8512-801aa6b7cb7b.png)
+
+<img src="images/activities.png" width="300"/>
+
 選擇日期:
-![image](https://user-images.githubusercontent.com/74814435/209557908-905f3cb5-3d25-4ac3-ba41-a1e4a7966322.png)
+
+<img src="images/date.png" width="300"/>
+
 選擇時間:
-![image](https://user-images.githubusercontent.com/74814435/209557920-9be3b85b-3428-4b76-9df6-68595ff8fbbe.png)
+
+<img src="images/time.png" width="300"/>
+
 確定!:
-![image](https://user-images.githubusercontent.com/74814435/209558142-5a280b0e-077e-4966-8edf-11e5236574e6.png)
+
+<img src="images/confirm.png" width="300"/>
 
 ### 資料庫
 #### 建立使用者資料
