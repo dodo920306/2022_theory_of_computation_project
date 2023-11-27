@@ -64,7 +64,7 @@
 <img src="images/cancel.png" width="300"/>
 
 ### 集點
-<img src="images/point.png" width="300"/>
+<img src="images/points.png" width="300"/>
 
 ### 最新消息
 <img src="images/news.png" width="300"/>
