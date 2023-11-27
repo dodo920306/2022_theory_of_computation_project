@@ -5,7 +5,7 @@
 (以下功能以Linebot, PostgreSQL, Pytransition實作)
 
 ## FSM
-<img src="images/fsm.png" width="500"/>
+<img src=".fsm.png" width="500"/>
 
 它看起來超級繁雜的！這是因為為了使用者方便起見，所有 state 皆可舜切換至其他任意 state。
 
