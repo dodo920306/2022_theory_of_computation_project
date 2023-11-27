@@ -51,22 +51,26 @@
 
 ### 資料庫
 #### 建立使用者資料
-![螢幕擷取畫面 (650)](https://user-images.githubusercontent.com/74814435/209558260-0123ccf8-8844-46cd-88a5-50bd68d6d139.png)
+
+<img src="images/db_user.png" width="300"/>
+
 #### 建立預約資料
-![螢幕擷取畫面 (649)](https://user-images.githubusercontent.com/74814435/209558209-1567f6d0-bf5d-4275-816b-bc9c5f7a2eae.png)
+
+<img src="images/db_activities.png" width="300"/>
 
 ### 取消預約
 選擇欲取消的預約:
-![image](https://user-images.githubusercontent.com/74814435/209558506-e0eba22d-8b9d-4783-b83a-1df87d306a91.png)
+
+<img src="images/cancel.png" width="300"/>
 
 ### 集點
-![image](https://user-images.githubusercontent.com/74814435/209558618-3964631e-e3df-4598-abb2-5021ad478b7e.png)
+<img src="images/point.png" width="300"/>
 
 ### 最新消息
-![image](https://user-images.githubusercontent.com/74814435/209558647-b4899fe8-3c12-4387-b981-f37364e367cb.png)
+<img src="images/news.png" width="300"/>
 
 ### 與我聯繫
-![image](https://user-images.githubusercontent.com/74814435/209558661-fd929dd9-f56b-46af-9f60-24c33a66691d.png)
+<img src="images/contact.png" width="300"/>
 
-<br/>
+
 取消再按對應的回應按鍵，一樣可以切回預約狀態，不須從頭預約
